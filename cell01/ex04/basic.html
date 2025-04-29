@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: 80vh;
+            width: 100vw;
+            align-items: start;
+            border-bottom: 2px solid black;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 1rem;
+            width: 20%;
+        }
+
+        .card-content {
+            width: 100%;
+        }
+
+        .card-content img {
+            width: 100%;
+        }
+        
+        .card-footer a{
+            text-decoration: none;
+        }
+
+        .footer {
+            width: 100%;
+            font-style: italic;
+            display: flex;
+            justify-content: end;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body style="background-color: pink; display:flex; align-items: center; flex-direction: column;">
+    <h1>-so bigger-</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <img src="https://domf5oio6qrcr.cloudfront.net/medialibrary/11525/0a5ae820-7051-4495-bcca-61bf02897472.jpg" alt="">
+            </div>
+            <div class="card-footer">
+                <a href="https://www.apple.com/">buy apple</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <img src="https://i5.walmartimages.com/seo/Apple-iPhone-X-64GB-Unlocked-GSM-Phone-w-Dual-12MP-Camera-Space-Gray-B-Grade-Used_15c2b968-bb85-41a4-9292-b017f78fe797.a66ebbf32b6d53b6d6eb14c47434ac04.jpeg" alt="">
+            </div>
+            <div class="card-footer">
+                <a href="https://www.samsung.com/th/">buy phone</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; ysorasak 2025</p>
+    </div>
+</body>
+</html>

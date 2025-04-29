@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    border: 1px solid black;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.box.one {
+    background-color: blanchedalmond;
+}
+
+.box.two {
+    background-color: aquamarine;
+}

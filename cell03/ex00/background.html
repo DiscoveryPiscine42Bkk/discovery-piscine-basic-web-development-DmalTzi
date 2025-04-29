@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="changeBG()">click me!</button>
+</body>
+<script>
+
+    const bodyDOM = document.getElementsByTagName("body")[0]
+    const hex = "0123456789abcdef"
+    const changeBG = () => {
+        const r = Math.ceil(Math.random()*15)
+        const g = Math.ceil(Math.random()*15)
+        const b = Math.ceil(Math.random()*15)
+        const o = Math.ceil(Math.random()*15)
+        const n = Math.ceil(Math.random()*15)
+        const e = Math.ceil(Math.random()*15)
+        bodyDOM.style.background = ["#",hex[r],hex[g],hex[b],hex[o],hex[n],hex[e]].join("")
+        console.log("clicked")
+    }
+</script>
+</html>

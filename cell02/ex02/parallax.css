@@ -1,0 +1,44 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+.penguin-cute {
+    background-image: url("https://www.cabq.gov/artsculture/biopark/images/penguin-cool-facts_baby-penguin-no-polar-bears.jpg");
+    height: 100%;
+    background-size: cover;
+    background-attachment:fixed;
+    background-position-x: center;
+    background-repeat: no-repeat;
+
+}
+
+.some-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.some-content span {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.horizon-line {
+    background-color: black;
+    color: white;
+    padding: 3rem;
+}
+
+.penguin-hard {
+    background-image: url("https://www.cabq.gov/artsculture/biopark/images/penguin-cool-facts_penguin-walking.jpg");
+    height: 100%;
+    background-size: cover;
+    background-attachment:fixed;
+    background-position-x: center;
+    background-repeat: no-repeat;
+  
+}
