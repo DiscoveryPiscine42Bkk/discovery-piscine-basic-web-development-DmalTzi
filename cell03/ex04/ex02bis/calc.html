@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .cal-container {
+            background-color: black;
+            padding: 2rem;
+            border-radius: 1rem;
+            display: flex;
+            height: 10rem;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .cal-btn {
+           width: 100%; 
+           display: flex;
+           justify-content: center;
+        }
+
+        .input-box {
+            font-size: 1rem;
+            padding: .5rem;
+        }
+
+        .input-operator {
+            padding: .5rem;
+            margin: 1rem;
+        }
+
+        #submit {
+            font-size: 1rem;
+            padding: .5rem;
+        }
+    </style>
+</head>
+<body>
+   <div class="cal-container">
+    <div class="cal-zone">
+        <input class="input-box" type="text" id="operand1" >
+        <select class="input-operator" name="operator" id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input class="input-box" type="text" id="operand2"> 
+    </div>
+    <div class="cal-btn">
+        <button id="submit">Try me!</button>
+    </div>
+   </div> 
+   <script>
+
+        setInterval(() => {
+            alert("Please, use me...")
+        }, 30 * 1000);
+
+        const operand1 = $("#operand1")
+        const operand2 = $("#operand2")
+        const operator = $("#operator")
+        const submit = $("#submit")
+
+        submit.click(() => {
+            const valueOperand1 = operand1.val();
+            const valueOperand2 = operand2.val();
+            const valueOperator = operator.val();
+            if (valueOperand1.length === 0 || valueOperand2.length === 0) {
+                alert("Error :(")
+                return
+            }
+            for (let i = 0; i < valueOperand1.length; i++) {
+                if(!"1234567890+-".includes(valueOperand1[i])){
+                    alert("Error :(")
+                    return
+                }
+            }
+            for (let i = 0; i < valueOperand2.length; i++) {
+                if(!"1234567890+-".includes(valueOperand2[i])) {
+                    alert("Error :(")
+                return
+                }
+            }
+            if (Number(valueOperand1) < 0 || Number(valueOperand2) < 0) {
+                alert("Error :(")
+                return
+            }
+
+            if (valueOperand2 <= 0 && (valueOperator === "/" || valueOperator === "%")) {
+                console.log(eval(valueOperand1 + valueOperator + valueOperand2))
+                alert("It's over 9000!")
+                return
+            }
+
+            const result = eval(valueOperand1 + valueOperator + valueOperand2)
+            if (result < 0) {
+                alert("Error :(")
+                return
+            }
+            console.log(result)
+            alert(result)
+        })
+   </script>
+</body>
+</html>

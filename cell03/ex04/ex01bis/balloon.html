@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Balloon</title>
+    <style>
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon"></div>
+</body>
+<script>
+    const colors = ["red", "green", "blue"];
+    let index = 1;
+
+    const initialWidthSize = $("#balloon").css("width")
+    const initialHeightSize = $("#balloon").css("height")
+
+    $("#balloon").click(() => {
+        $("#balloon").css({
+            "background-color": colors[index % colors.length * (index % colors.length < 0 ? -1 : 1)],
+            "width": ($("#balloon").width() + 10) + "px",
+            "height": ($("#balloon").height() + 10) + "px",
+        })
+        if ($("#balloon").width() > 420 && $("#balloon").height() > 420) {
+            $("#balloon").css({
+                "width": initialWidthSize,
+                "height": initialHeightSize,
+            })
+
+        }
+        index++;
+    })
+
+
+    $("#balloon").mouseout(() => {
+        let height = $("#balloon").height()
+        let width = $("#balloon").width()
+
+        if (height > 200 && width > 200) {
+            $("#balloon").css({
+                "background-color": colors[index % colors.length * (index % colors.length < 0 ? -1 : 1)],
+                "width": ($("#balloon").width() - 5) + "px",
+                "height": ($("#balloon").height() - 5) + "px",
+            })
+        }
+        index--;
+    })
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <style>
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+   <div id="balloon" ></div> 
+</body>
+<script>
+    const balloon = document.getElementById("balloon");
+    const colors = ["red", "green", "blue"];
+    let index = 1;
+
+    const initialWidthSize = balloon.offsetWidth;
+    const initialHeightSize = balloon.offsetHeight;
+
+    balloon.addEventListener("click" , () => {
+        balloon.style.background = colors[index%colors.length * (index%colors.length < 0 ? -1 : 1)]
+        balloon.style.height = (balloon.offsetHeight + 10) + "px";
+        balloon.style.width = (balloon.offsetWidth + 10) + "px";
+        if (balloon.offsetWidth > 420 && balloon.offsetHeight > 420) {
+            balloon.style.height = initialHeightSize + "px";
+            balloon.style.width = initialWidthSize + "px";
+        }
+        index++;
+    })
+
+    balloon.addEventListener("mouseout", () => {
+        let offsetHeight = balloon.offsetHeight;
+        let offsetWidth = balloon.offsetWidth;
+        if (offsetHeight > 200 && offsetWidth > 200) {
+            balloon.style.height = (offsetHeight - 5) + "px";
+            balloon.style.width = (offsetWidth - 5) + "px";
+            balloon.style.background = colors[index%colors.length * (index%colors.length < 0 ? -1 : 1)];
+        }
+        index--;
+    })
+</script>
+</html>
