@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Rowdies", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    background-color: #FFDFEF;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-bar {
+    background-color: #EABDE6;
+    width: 90%;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    text-transform: uppercase;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    padding: 0 2rem .25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.nav-link:before {
+    content: "";
+    position: absolute;
+    inset: calc(100% - 3px) 0 0 0;
+    /* 3px = the thickness */
+    background: #ce4f20;
+    /* the color */
+    scale: 0 0;
+    transition: .3s, translate 0s .3s;
+}
+
+.nav-link-container:hover .nav-link:before {
+    scale: 1;
+}
+
+.nav-link:hover:before {
+    translate: 0;
+    transition: .3s;
+}
+
+.nav-link-container:hover .nav-link:has(~ .nav-link:hover):before {
+    translate: 100% 0;
+    transition: .2s .2s, scale 0s .4s;
+}
+
+.nav-link-container:hover .nav-link:hover~.nav-link:before {
+    translate: -100% 0;
+    transition: .2s .2s, scale 0s .4s;
+}
+
+.title a {
+    text-decoration: none;
+    color: white;
+}
+
+.home-container {
+    height: 90vh;
+    background-color: #FFDFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-box {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-title {
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+.home-detail {
+    margin: 1rem;
+}
+
+.home-link-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-link {
+    border: 2px solid #D69ADE;
+    padding: 2rem;
+    height: 1rem;
+    margin: 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .3rem;
+    text-decoration: none;
+    color: #D69ADE;
+    font-weight: bold;
+    transition: 300ms ease;
+}
+
+.home-link:hover {
+    scale: 1.2;
+    border-radius: 1rem;
+    background-color: #D69ADE;
+    color: white;
+}
+
+.about-container {
+    height: 100vh;
+    background-color: #EABDE6;
+}
+
