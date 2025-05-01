@@ -1,29 +1,56 @@
 const newTODO = document.getElementById("new");
-const deleteTODO = document.getElementById("delete");
 const list = document.getElementById("ft-list");
-deleteTODO.style.visibility = "hidden"
-const cookie = document.cookie.slice(5,-1)
 
-if (cookie.length > 0) {
-    list.innerHTML = cookie
-    deleteTODO.style.visibility = "visible";
+if(document.cookie.length <= 0) {
+    document.cookie = `list=; expire=${new Date(new Date().getTime()+(60*60*24*30*1000)).toUTCString()};path=/`;
 }
+
+const load = () => {
+    const cookie = decode(document.cookie.slice(5));
+    if (cookie.length > 0) {
+        cookie.split(/(?=<d)/).forEach((e) => {
+            const temp = document.createElement("div");
+            temp.innerHTML = e;
+            const todo = createDiv(temp.firstChild.innerText)
+            list.append(todo)
+        })
+    }
+}
+
 newTODO.addEventListener("click", () => {
     const input = prompt("");
     if (input.length <= 0)
         return;
     
-    const content = `<div class="each">${input}</div>`;
-    list.innerHTML = content + list.innerHTML;
-    document.cookie = `list=${list.innerHTML}; expire=${new Date(new Date().getTime()+(60*60*24*30*1000)).toUTCString()};path=/`;
-    if (list.innerHTML.length > 0) deleteTODO.style.visibility = "visible"
+    const todo = createDiv(input);
+    
+    list.prepend(todo)
+
+    createCookie(list.innerHTML)
 })
 
-deleteTODO.addEventListener("click", () => {
-    if (window.confirm("Do you want to delete all TO DO?")) {
-        list.innerHTML = "";
-        deleteTODO.style.visibility = "hidden"
-        document.cookie 
-        document.cookie = `list=; expire=${new Date(0).toUTCString()}`;
-    }
-})
+const createCookie = (content) => {
+    document.cookie = `list=${encode(content)}; expire=${new Date(new Date().getTime()+(60*60*24*30*1000)).toUTCString()};path=/`;
+}
+
+const createDiv = (input) => {
+    const todo = document.createElement(`div`);
+    todo.className="each";   
+    todo.innerText = input;
+    todo.addEventListener("click", () => {
+        todo.remove()
+        createCookie(list.innerHTML)
+    })
+    return todo;
+}
+
+const encode = (payload) => {
+    console.log(payload)
+    return btoa(payload)
+} 
+
+const decode = (payload) => {
+    return atob(payload)
+}
+
+load()

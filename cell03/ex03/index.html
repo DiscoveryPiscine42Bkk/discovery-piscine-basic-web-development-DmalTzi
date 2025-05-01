@@ -4,13 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #new {
+            padding: .5rem 1.5rem;
+            margin: 1rem;
+        }
+
+        #ft-list {
+            margin: 1rem;
+            width: 50%;
+        }
+
+        .each {
+            padding: 1rem;
+            margin: 1rem;
+            background-color: antiquewhite;
+            width: 100%;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+        
+    </style>
 </head>
 <body>
     <button id="new">New</button>
-    <button id="delete">Delete</button>
-    <div id="ft-list">
-        <a href="W"></a>
-    </div>
+    <div id="ft-list"></div>
     <script src="/todo.js"></script>
 </body>
 </html>

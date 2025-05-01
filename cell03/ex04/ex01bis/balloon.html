@@ -22,10 +22,9 @@
 <script>
     const colors = ["red", "green", "blue"];
     let index = 1;
-
     const initialWidthSize = $("#balloon").css("width")
     const initialHeightSize = $("#balloon").css("height")
-
+    
     $("#balloon").click(() => {
         $("#balloon").css({
             "background-color": colors[index % colors.length * (index % colors.length < 0 ? -1 : 1)],
